@@ -26,4 +26,13 @@ public class AllSuites {
     public static void shutdown() {
         System.out.println("SHUTDOWN");
     }
+
+    @Before
+    public void bf() {
+        prn();
+    }
+
+    public void prn() {
+        System.out.println("BEFORE");
+    }
 }
