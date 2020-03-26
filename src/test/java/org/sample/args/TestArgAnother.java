@@ -14,7 +14,7 @@ import java.util.Arrays;
 import java.util.Collection;
 
 @RunWith(Parameterized.class)
-public class TestArg extends SomeSteps {
+public class TestArgAnother extends SomeSteps {
 
     @Parameterized.Parameter
     public String something;
@@ -22,8 +22,8 @@ public class TestArg extends SomeSteps {
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
         return Arrays.asList(new Object[][] {
-           {"A1"},
-           {"A2"}
+           {"B1"},
+           {"B2"}
         });
     }
 
@@ -45,9 +45,21 @@ public class TestArg extends SomeSteps {
     @DisplayName("Всегда провальный")
     @Description("Пробный тест, который всегда выполняется с ошибкой")
     public void failureTest() {
-        System.out.println(">> TEST 1");
-        step1(something + "<< TEST 1");
-        step2(something + "<< TEST 1");
+        System.out.println(">> TEST 2");
+        step1(something + "<< TEST2");
+        step2(something + "<< TEST2");
+    }
+
+    @Step("RUN STEP 3 {something}")
+    public void step3(String something) {
+        System.out.println("STEP 3 - " + something);
+        Assert.assertTrue(true);
+    }
+
+    @Step("RUN STEP 4 {something}")
+    public void step4(String something) {
+        System.out.println("STEP 4 - " + something);
+        Assert.assertTrue(true);
     }
 
 

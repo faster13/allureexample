@@ -17,7 +17,7 @@
         <aspectj.version>1.8.14</aspectj.version>
 
         <argLine>
-            -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+            -javaagent:"${settings.localRepository}"/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar
             -Xmx1024m -XX:MaxPermSize=256m
         </argLine>
     </properties>
@@ -44,12 +44,9 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <configuration>
-                    <argLine>
-                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
-                        -Xmx1024m -XX:MaxPermSize=256m
-                    </argLine>
+                    <argLine>${argLine}</argLine>
                     <testFailureIgnore>false</testFailureIgnore>
-                    <forkCount>3</forkCount>
+                    <forkCount>0</forkCount>
                     <reuseForks>true</reuseForks>
                     <properties>
                         <property>
